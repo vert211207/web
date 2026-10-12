@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0c10" />
+  <title>Alex Morgan — Premium Portfolio V2</title>
+  <meta name="description" content="A premium, futuristic personal portfolio template." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+    :root{--bg:#0b0c10;--panel:#111319;--panel2:#171922;--text:#f5f6fa;--muted:#a0a4b3;--line:rgba(255,255,255,.11);--accent:#c7ff5e;--accent2:#9df4e5;--radius:22px;--max:1160px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--text);font-family:Manrope,system-ui,sans-serif;line-height:1.6;overflow-x:hidden}body.light{--bg:#f4f5f0;--panel:#fff;--panel2:#e9ebe4;--text:#151711;--muted:#62675c;--line:rgba(20,25,15,.14);--accent:#4d6e00;--accent2:#147e70}
+    a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}.mono{font-family:"DM Mono",monospace;text-transform:uppercase;letter-spacing:.12em;font-size:.72rem}.muted{color:var(--muted)}.accent{color:var(--accent)}.section{padding:110px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:38px}.section-head h2{font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-.065em;line-height:1.05;margin:10px 0 0}.section-head p{max-width:360px;color:var(--muted);margin:0}
+    .noise{position:fixed;inset:0;pointer-events:none;z-index:20;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E")}
+    .nav{position:sticky;top:0;z-index:15;background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:800;letter-spacing:-.06em;font-size:1.1rem}.brand span{color:var(--accent)}.nav-links{display:flex;align-items:center;gap:28px;color:var(--muted);font-size:.88rem}.nav-links a:hover{color:var(--text)}.nav-actions{display:flex;gap:10px;align-items:center}.icon-btn{height:40px;width:40px;border:1px solid var(--line);border-radius:50%;background:var(--panel);color:var(--text);cursor:pointer}.pill{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 18px;border-radius:999px;background:var(--accent);color:#10120b;font-size:.85rem;font-weight:800;border:1px solid transparent;transition:transform .2s,opacity .2s}.pill:hover{transform:translateY(-2px)}.pill.outline{background:transparent;color:var(--text);border-color:var(--line)}.pill.small{padding:9px 14px;font-size:.8rem}
+    .hero{min-height:calc(100vh - 76px);display:grid;align-items:center;padding:70px 0 90px;position:relative}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:70px}.eyebrow{display:flex;align-items:center;gap:10px;color:var(--muted);margin-bottom:24px}.status-dot{height:8px;width:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 16px var(--accent)}h1{font-size:clamp(3.4rem,8vw,7rem);line-height:.94;letter-spacing:-.085em;margin:0 0 28px;font-weight:700}h1 .stroke{-webkit-text-stroke:1px var(--text);color:transparent}.hero-copy{font-size:1.05rem;color:var(--muted);max-width:520px}.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}.hero-meta{display:flex;gap:30px;margin-top:48px}.meta-item strong{display:block;font-size:1.4rem;letter-spacing:-.05em}.meta-item span{color:var(--muted);font-size:.78rem}
+    .visual{min-height:470px;position:relative;display:grid;place-items:center}.orb{position:absolute;width:min(390px,90%);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 32% 25%,#f4ffd1 0,#c7ff5e 12%,#7ca73c 32%,#26351d 57%,#111319 72%);filter:saturate(.9);box-shadow:inset -28px -24px 65px rgba(0,0,0,.55),0 0 100px rgba(199,255,94,.12);animation:float 7s ease-in-out infinite}.orb:before,.orb:after{content:"";position:absolute;inset:-9%;border:1px solid rgba(199,255,94,.3);border-radius:50%;transform:rotate(-28deg) scaleY(.32)}.orb:after{transform:rotate(54deg) scaleY(.25);border-color:rgba(157,244,229,.35)}.orbit{position:absolute;width:460px;max-width:100%;aspect-ratio:1;border:1px solid var(--line);border-radius:50%;transform:rotate(-25deg) scaleY(.43)}.orbit.two{transform:rotate(38deg) scaleY(.55);border-style:dashed}.float-card{position:absolute;z-index:2;padding:14px 16px;background:color-mix(in srgb,var(--panel) 85%,transparent);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:16px;box-shadow:0 20px 60px #0002}.float-card.top{top:55px;right:0}.float-card.bottom{bottom:50px;left:0}.float-card b{display:block;font-size:.9rem}.float-card small{color:var(--muted)}.mini-bars{display:flex;gap:4px;margin-top:8px}.mini-bars i{height:4px;width:22px;background:var(--accent);border-radius:5px}.mini-bars i:nth-child(2){opacity:.65}.mini-bars i:nth-child(3){opacity:.3}
+    .ticker{overflow:hidden;border-block:1px solid var(--line);padding:18px 0;color:var(--muted);white-space:nowrap}.ticker-track{display:flex;gap:34px;width:max-content;animation:marquee 30s linear infinite}.ticker span{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}.ticker b{color:var(--accent);font-size:1rem}
+    .about-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:80px}.about-stamp{height:250px;border:1px solid var(--line);border-radius:var(--radius);display:flex;flex-direction:column;justify-content:space-between;padding:24px;background:linear-gradient(145deg,var(--panel),transparent)}.stamp-mark{font-size:5rem;font-weight:800;letter-spacing:-.1em;line-height:1}.about-text h3{font-size:clamp(1.6rem,3vw,2.6rem);letter-spacing:-.06em;line-height:1.2;margin:0 0 22px}.about-text p{color:var(--muted);max-width:680px}.tag-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}.tag{padding:8px 12px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.78rem}
+    .projects{background:var(--panel)}.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.project-card{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--bg);transition:transform .25s,border-color .25s}.project-card:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--accent) 50%,var(--line))}.project-art{height:270px;position:relative;overflow:hidden;display:grid;place-items:center;background:#181d20}.project-art.art2{background:#d8e4da}.project-art.art3{background:#e6c5a5}.project-art.art4{background:#262038}.art-shape{width:190px;height:220px;border-radius:100px 100px 20px 20px;background:linear-gradient(145deg,#d9ff9b,#607e35);box-shadow:25px 25px 0 rgba(0,0,0,.16);transform:rotate(-9deg);transition:transform .5s}.project-card:hover .art-shape{transform:rotate(0) scale(1.05)}.art2 .art-shape{width:240px;height:150px;border-radius:18px;background:linear-gradient(135deg,#eff7eb,#5b9a8c);transform:rotate(12deg);box-shadow:18px 18px 0 #9cb9a9}.art3 .art-shape{width:180px;height:180px;border-radius:50%;background:repeating-conic-gradient(#b65c3c 0 10deg,#f3d0a7 10deg 20deg);box-shadow:0 0 0 18px #c98a69,0 0 0 35px #efb88f}.art4 .art-shape{width:240px;height:160px;border-radius:16px;background:linear-gradient(130deg,#d8c9ff,#8b72d9);transform:skewY(-12deg);box-shadow:20px 20px 0 #171326}.art-label{position:absolute;top:18px;left:18px;color:#fff;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}.project-info{padding:22px;display:flex;justify-content:space-between;gap:20px;align-items:start}.project-info h3{margin:0;font-size:1.2rem;letter-spacing:-.04em}.project-info p{margin:6px 0 0;color:var(--muted);font-size:.85rem}.arrow{height:38px;width:38px;flex-shrink:0;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.service{padding:26px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);min-height:220px}.service-num{font-family:"DM Mono",monospace;color:var(--accent);font-size:.75rem}.service h3{font-size:1.15rem;margin:30px 0 10px;letter-spacing:-.04em}.service p{font-size:.88rem;color:var(--muted);margin:0}
+    .contact{padding:100px 0}.contact-box{padding:clamp(28px,6vw,70px);border:1px solid var(--line);border-radius:30px;background:radial-gradient(circle at 100% 0%,rgba(199,255,94,.1),transparent 38%),var(--panel);display:grid;grid-template-columns:1fr .7fr;gap:50px;align-items:center}.contact h2{font-size:clamp(2.8rem,7vw,5.7rem);line-height:.98;letter-spacing:-.08em;margin:16px 0 24px}.contact p{color:var(--muted);max-width:470px}.contact-links{display:grid;gap:10px}.contact-link{padding:16px;border:1px solid var(--line);border-radius:14px;display:flex;justify-content:space-between;gap:12px;align-items:center}.contact-link span{color:var(--muted);font-size:.8rem}.contact-link b{font-size:.9rem;overflow-wrap:anywhere}
+    footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:.8rem}.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}.backtop{color:var(--text)}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:translateY(0)}@keyframes float{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-16px) rotate(3deg)}}@keyframes marquee{to{transform:translateX(-50%)}}
+
+    /* Cinematic polish */
+    .page-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(520px circle at var(--mx,50%) var(--my,30%),rgba(199,255,94,.075),transparent 62%);transition:background .15s}
+    .intro-wipe{position:fixed;inset:0;z-index:50;background:var(--accent);transform:scaleY(1);transform-origin:top;animation:wipeAway .85s cubic-bezier(.76,0,.24,1) .15s forwards;pointer-events:none}
+    .intro-wipe:after{content:"AM / CREATIVE";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font:500 12px "DM Mono",monospace;letter-spacing:.2em;color:#111}
+    @keyframes wipeAway{to{transform:scaleY(0)}}
+    .magnetic{position:relative;isolation:isolate;will-change:transform}
+    .pill:before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(110deg,transparent 20%,rgba(255,255,255,.28),transparent 70%);transform:translateX(-120%);transition:transform .6s;z-index:-1}
+    .pill:hover:before{transform:translateX(120%)}
+    .project-card{transform-style:preserve-3d;will-change:transform}
+    .project-art:after{content:"";position:absolute;inset:0;background:linear-gradient(125deg,rgba(255,255,255,.13),transparent 35%,rgba(0,0,0,.12));pointer-events:none}
+    .art-shape{transform-style:preserve-3d;filter:drop-shadow(0 24px 22px rgba(0,0,0,.16))}
+    .project-card:hover .project-info{transform:translateZ(18px)}
+    .project-info{transition:transform .25s}
+    .orb{will-change:transform}
+    .orb-core{position:absolute;inset:18%;border-radius:50%;background:radial-gradient(circle at 35% 25%,rgba(255,255,255,.75),rgba(199,255,94,.15) 20%,transparent 60%);mix-blend-mode:screen;pointer-events:none}
+    .scroll-progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:30;background:var(--accent);box-shadow:0 0 14px var(--accent)}
+    .hero-content .eyebrow{animation:riseIn .7s .8s both}
+    .hero-content h1{animation:riseIn .8s .9s both}
+    .hero-content .hero-copy{animation:riseIn .8s 1.05s both}
+    .hero-content .hero-ctas{animation:riseIn .8s 1.15s both}
+    @keyframes riseIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){body{cursor:default}.cursor-aura{position:fixed;z-index:25;pointer-events:none;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(199,255,94,.07),transparent 68%);transform:translate(-50%,-50%);mix-blend-mode:screen}}
+    @media(prefers-reduced-motion:reduce){.intro-wipe{display:none}.hero-content .eyebrow,.hero-content h1,.hero-content .hero-copy,.hero-content .hero-ctas{animation:none}}
+
+
+    /* V2 visual upgrade: stronger cinematic depth and clearly visible interactions */
+    .hero{background:radial-gradient(ellipse at 78% 45%,rgba(199,255,94,.075),transparent 38%),radial-gradient(ellipse at 12% 80%,rgba(157,244,229,.055),transparent 32%)}
+    .hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.6}
+    .orb{background:radial-gradient(circle at 29% 23%,#fff 0,#eaffb8 5%,#c7ff5e 13%,#7ca73c 31%,#26351d 55%,#111319 73%);box-shadow:inset -32px -28px 70px rgba(0,0,0,.62),0 0 45px rgba(199,255,94,.18),0 0 130px rgba(199,255,94,.16)}
+    .orbit{border-color:rgba(199,255,94,.35);box-shadow:0 0 24px rgba(199,255,94,.04)}
+    .project-card{box-shadow:0 14px 45px rgba(0,0,0,.09)}
+    .project-card:hover{box-shadow:0 28px 70px rgba(0,0,0,.22),0 0 0 1px rgba(199,255,94,.13)}
+    .service{transition:transform .25s,border-color .25s,background .25s}
+    .service:hover{transform:translateY(-6px);border-color:rgba(199,255,94,.42);background:linear-gradient(145deg,var(--panel2),var(--panel))}
+    .contact-box{position:relative;overflow:hidden}
+    .contact-box:after{content:"✳";position:absolute;right:36%;top:-75px;font-size:260px;line-height:1;color:var(--accent);opacity:.035;pointer-events:none;transform:rotate(-18deg)}
+    .contact-box>*{position:relative;z-index:1}
+    .brand{transition:letter-spacing .25s}.brand:hover{letter-spacing:.02em}
+    .nav-links a{position:relative}.nav-links a:after{content:"";position:absolute;left:0;bottom:-7px;width:100%;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .25s}.nav-links a:hover:after{transform:scaleX(1)}
+
+    @media(max-width:850px){.nav-links{gap:15px}.hero-grid{grid-template-columns:1fr;gap:15px}.hero{padding-top:70px}.visual{min-height:380px}.orb{width:300px}.orbit{width:360px}.float-card.top{right:5%}.float-card.bottom{left:5%}.about-grid{grid-template-columns:1fr;gap:24px}.about-stamp{height:180px}.services-grid{grid-template-columns:1fr 1fr}.contact-box{grid-template-columns:1fr;gap:30px}}
+    @media(max-width:580px){.wrap{width:min(100% - 28px,var(--max))}.nav-inner{height:66px}.nav-links{display:none}.section{padding:76px 0}.section-head{display:block}.section-head p{margin-top:18px}.hero{min-height:auto;padding:70px 0 50px}h1{font-size:clamp(3.4rem,17vw,5.2rem)}.hero-meta{gap:18px}.meta-item strong{font-size:1.2rem}.visual{min-height:320px}.orb{width:250px}.orbit{width:300px}.float-card{padding:10px 12px}.float-card.top{top:20px}.float-card.bottom{bottom:20px}.project-grid{grid-template-columns:1fr}.project-art{height:230px}.services-grid{grid-template-columns:1fr}.service{min-height:auto}.service h3{margin-top:20px}.footer-inner{align-items:flex-start;flex-direction:column}.contact{padding:70px 0}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <div class="intro-wipe" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="page-glow" aria-hidden="true"></div>
+  <div class="cursor-aura" aria-hidden="true"></div>
+  <div class="noise"></div>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#home" aria-label="Alex Morgan home">ALEX<span>.</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#work">Work</a><a href="#services">Services</a><a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle light and dark theme" title="Toggle theme">☼</button>
+        <a class="pill small magnetic" href="#contact">Let’s talk <span>↗</span></a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div class="hero-content reveal">
+          <div class="eyebrow mono"><span class="status-dot"></span> Available for select projects <span style="margin-left:8px;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:3px 8px;font-size:.62rem">PORTFOLIO V2</span></div>
+          <h1>Designing<br>what’s <span class="stroke">next.</span></h1>
+          <p class="hero-copy">I’m Alex — a digital designer and creative developer turning ambitious ideas into thoughtful, high-impact digital experiences.</p>
+          <div class="hero-ctas"><a class="pill magnetic" href="#work">Explore my work <span>↘</span></a><a class="pill outline magnetic" href="#about">A little about me</a></div>
+          <div class="hero-meta">
+            <div class="meta-item"><strong>04<span class="accent">+</span></strong><span>Years creating</span></div>
+            <div class="meta-item"><strong>28</strong><span>Projects shipped</span></div>
+            <div class="meta-item"><strong>12</strong><span>Happy partners</span></div>
+          </div>
+        </div>
+        <div class="visual reveal" aria-label="Abstract glowing 3D orb illustration">
+          <div class="orbit"></div><div class="orbit two"></div><div class="orb"><div class="orb-core"></div></div>
+          <div class="float-card top"><span class="mono muted">Currently exploring</span><b>Design × Technology</b><div class="mini-bars"><i></i><i></i><i></i></div></div>
+          <div class="float-card bottom"><span class="mono muted">My approach</span><b>Curious by default <span class="accent">✳</span></b><small>Make it useful. Make it matter.</small></div>
+        </div>
+      </div>
+    </section>
+    <div class="ticker" aria-hidden="true"><div class="ticker-track">
+      <span>Creative direction</span><b>✳</b><span>Digital experiences</span><b>✳</b><span>UI / UX design</span><b>✳</b><span>Creative development</span><b>✳</b><span>Creative direction</span><b>✳</b><span>Digital experiences</span><b>✳</b><span>UI / UX design</span><b>✳</b><span>Creative development</span><b>✳</b>
+    </div></div>
+    <section class="section" id="about">
+      <div class="wrap about-grid">
+        <div class="about-stamp reveal"><span class="mono muted">A bit about me / 001</span><div class="stamp-mark">A<span class="accent">.</span></div><span class="mono">Independent creative · 2026</span></div>
+        <div class="about-text reveal"><div class="mono accent">The person behind the pixels</div><h3>I believe great digital work should feel as good as it functions.</h3><p>I bring strategy, design, and technology together to make the complicated feel simple. From the first rough idea to the final polished detail, I care about clarity, craft, and creating something people genuinely enjoy using.</p><p>When I’m not designing, I’m collecting inspiration, experimenting with new tools, or asking “what if?” one more time.</p><div class="tag-list"><span class="tag">UI / UX</span><span class="tag">Web design</span><span class="tag">Creative coding</span><span class="tag">Brand systems</span><span class="tag">Prototyping</span></div></div>
+      </div>
+    </section>
+    <section class="section projects" id="work">
+      <div class="wrap">
+        <div class="section-head reveal"><div><div class="mono accent">Selected work / 2024—26</div><h2>Ideas made<br>tangible<span class="accent">.</span></h2></div><p>A selection of concept projects that combine thoughtful strategy with distinctive visual craft.</p></div>
+        <div class="project-grid">
+          <article class="project-card reveal"><div class="project-art art1"><span class="art-label">01 / Digital product</span><div class="art-shape"></div></div><div class="project-info"><div><h3>Forma — Better habits</h3><p>Product strategy · UI/UX · Mobile</p></div><a class="arrow" href="#contact" aria-label="Ask about Forma project">↗</a></div></article>
+          <article class="project-card reveal"><div class="project-art art2"><span class="art-label" style="color:#1a3029">02 / E-commerce</span><div class="art-shape"></div></div><div class="project-info"><div><h3>Still Studio</h3><p>Art direction · Digital storefront</p></div><a class="arrow" href="#contact" aria-label="Ask about Still Studio project">↗</a></div></article>
+          <article class="project-card reveal"><div class="project-art art3"><span class="art-label" style="color:#4e2519">03 / Visual identity</span><div class="art-shape"></div></div><div class="project-info"><div><h3>Solara — Everyday ritual</h3><p>Brand identity · Packaging</p></div><a class="arrow" href="#contact" aria-label="Ask about Solara project">↗</a></div></article>
+          <article class="project-card reveal"><div class="project-art art4"><span class="art-label">04 / Web experience</span><div class="art-shape"></div></div><div class="project-info"><div><h3>Orbit Finance</h3><p>Web design · Interaction design</p></div><a class="arrow" href="#contact" aria-label="Ask about Orbit Finance project">↗</a></div></article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="services">
+      <div class="wrap">
+        <div class="section-head reveal"><div><div class="mono accent">What I can do / 003</div><h2>Small details.<br>Big picture<span class="accent">.</span></h2></div><p>Flexible creative support from early thinking to launch day — shaped around what your project needs.</p></div>
+        <div class="services-grid">
+          <article class="service reveal"><span class="service-num">01 — THINK</span><h3>Strategy & direction</h3><p>Finding the core idea, defining the story, and turning a fuzzy brief into a focused plan.</p></article>
+          <article class="service reveal"><span class="service-num">02 — DESIGN</span><h3>Digital design</h3><p>Distinctive interfaces, visual systems, and user journeys built around real human needs.</p></article>
+          <article class="service reveal"><span class="service-num">03 — BUILD</span><h3>Creative development</h3><p>Bringing designs to life with responsive layouts, meaningful motion, and careful details.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="contact" id="contact">
+      <div class="wrap"><div class="contact-box reveal">
+        <div><div class="mono accent">Have something in mind?</div><h2>Let’s make<br>it <span class="accent">real.</span></h2><p>Have a project, an interesting challenge, or just want to say hello? My inbox is open.</p><a class="pill magnetic" id="emailCta" href="mailto:hello@example.com">Start a conversation <span>↗</span></a></div>
+        <div class="contact-links">
+          <a class="contact-link" id="emailLink" href="mailto:hello@example.com"><div><span>Email</span><br><b>hello@example.com</b></div><span>↗</span></a>
+          <a class="contact-link" href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><div><span>LinkedIn</span><br><b>Let’s connect</b></div><span>↗</span></a>
+          <a class="contact-link" href="https://www.behance.net/" target="_blank" rel="noreferrer"><div><span>Behance</span><br><b>More visual work</b></div><span>↗</span></a>
+          <div class="contact-link"><div><span>Based in</span><br><b>Your City, Earth</b></div><span>✳</span></div>
+        </div>
+      </div></div>
+    </section>
+  </main>
+  <footer><div class="wrap footer-inner"><span>© <span id="year"></span> Alex Morgan. Made with curiosity.</span><span class="mono">Designed to be different <span class="accent">✳</span></span><a class="backtop" href="#home">Back to top ↑</a></div></footer>
+  <script>
+    // QUICK PERSONALIZATION: edit these values to make this portfolio yours.
+    const portfolio = { name: "Alex Morgan", email: "hello@example.com", city: "Your City, Earth" };
+    document.title = `${portfolio.name} — Premium Portfolio V2`;
+    document.querySelectorAll(".brand").forEach(el => el.innerHTML = `${portfolio.name.split(" ")[0].toUpperCase()}<span>.</span>`);
+    document.querySelector("#emailCta").href = `mailto:${portfolio.email}`;
+    document.querySelector("#emailLink").href = `mailto:${portfolio.email}`;
+    document.querySelector("#emailLink b").textContent = portfolio.email;
+    document.querySelectorAll(".contact-link b").forEach(el => { if(el.textContent === "Your City, Earth") el.textContent = portfolio.city; });
+    document.querySelector("#year").textContent = new Date().getFullYear();
+    const themeToggle = document.querySelector("#themeToggle");
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+      themeToggle.textContent = document.body.classList.contains("light") ? "☾" : "☼";
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add("visible"); observer.unobserve(entry.target); } });
+    }, {threshold: .12});
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    // Pointer-following ambient light and gentle parallax.
+    const root = document.documentElement;
+    const aura = document.querySelector(".cursor-aura");
+    const orb = document.querySelector(".orb");
+    let pointerX = innerWidth / 2, pointerY = innerHeight / 3;
+    window.addEventListener("pointermove", e => {
+      pointerX = e.clientX; pointerY = e.clientY;
+      root.style.setProperty("--mx", `${e.clientX}px`);
+      root.style.setProperty("--my", `${e.clientY}px`);
+      if (aura) { aura.style.left = `${e.clientX}px`; aura.style.top = `${e.clientY}px`; }
+      if (orb && matchMedia("(hover:hover) and (pointer:fine)").matches) {
+        const dx = (e.clientX / innerWidth - .5) * 14;
+        const dy = (e.clientY / innerHeight - .5) * 14;
+        orb.style.translate = `${dx}px ${dy}px`;
+      }
+    }, {passive:true});
+
+    // Subtle magnetic pull on key calls to action.
+    if (matchMedia("(hover:hover) and (pointer:fine)").matches && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.querySelectorAll(".magnetic").forEach(button => {
+        button.addEventListener("pointermove", e => {
+          const r = button.getBoundingClientRect();
+          const x = e.clientX - r.left - r.width / 2;
+          const y = e.clientY - r.top - r.height / 2;
+          button.style.transform = `translate(${x * .12}px, ${y * .18}px) translateY(-2px)`;
+        });
+        button.addEventListener("pointerleave", () => button.style.transform = "");
+      });
+
+      // Gentle 3D tilt on portfolio cards.
+      document.querySelectorAll(".project-card").forEach(card => {
+        card.addEventListener("pointermove", e => {
+          const r = card.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width;
+          const y = (e.clientY - r.top) / r.height;
+          card.style.transform = `perspective(900px) rotateX(${(0.5-y)*5}deg) rotateY(${(x-0.5)*6}deg) translateY(-5px)`;
+        });
+        card.addEventListener("pointerleave", () => card.style.transform = "");
+      });
+    }
+
+    // Thin scroll progress indicator.
+    const progress = document.querySelector(".scroll-progress");
+    const updateProgress = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      progress.style.width = `${max > 0 ? (scrollY / max) * 100 : 0}%`;
+    };
+    window.addEventListener("scroll", updateProgress, {passive:true});
+    updateProgress();
+  </script>
+</body>
+</html>
